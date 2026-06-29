@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>한콘연 온라인 특강 후기 선물 · NotebookLM A to Z</title>
+  <meta name="description" content="2026-06-28 한콘연 NotebookLM 온라인 특강 후기 선물 안내 페이지. 공유 링크, 프롬프트, 자료 다운로드를 한 번에 확인할 수 있습니다.">
+  <style>
+    :root {
+      --bg: #061124;
+      --bg-soft: #0b1c36;
+      --panel: rgba(10, 26, 52, 0.72);
+      --panel-solid: #0e2342;
+      --line: rgba(255, 214, 128, 0.18);
+      --gold: #ffcc72;
+      --gold-strong: #f0a93a;
+      --gold-dim: #c89543;
+      --text: #f8f4ea;
+      --muted: #c7c1b4;
+      --navy-shadow: rgba(2, 10, 25, 0.55);
+      --violet: #7c58b8;
+      --emerald: #36c49a;
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --container: 1240px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans KR", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(245, 178, 68, 0.18), transparent 30%),
+        radial-gradient(circle at 85% 15%, rgba(255, 205, 120, 0.10), transparent 20%),
+        linear-gradient(180deg, #08101f 0%, #08172d 48%, #050c18 100%);
+      min-height: 100vh;
+      letter-spacing: -0.02em;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: radial-gradient(circle at center, black, transparent 78%);
+      opacity: 0.32;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .shell {
+      width: min(calc(100% - 32px), var(--container));
+      margin: 0 auto;
+      padding: 32px 0 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(6, 17, 36, 0.62);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(145deg, rgba(255, 204, 114, 0.32), rgba(255, 204, 114, 0.08));
+      border: 1px solid rgba(255, 204, 114, 0.28);
+      color: var(--gold);
+      font-size: 20px;
+    }
+
+    .brand-copy {
+      min-width: 0;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      color: rgba(255, 230, 190, 0.72);
+      margin-bottom: 2px;
+      white-space: nowrap;
+    }
+
+    .brand-title {
+      font-size: 18px;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .instructor-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 204, 114, 0.12);
+      border: 1px solid rgba(255, 204, 114, 0.16);
+      color: #ffe6b0;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .topbar-note {
+      font-size: 13px;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .hero-copy,
+    .hero-cover {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, rgba(13, 30, 58, 0.88), rgba(8, 18, 36, 0.92));
+      box-shadow: 0 30px 70px var(--navy-shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-copy {
+      padding: 42px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 640px;
+    }
+
+    .hero-copy::after,
+    .hero-cover::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.04) 48%, transparent 60%);
+      mix-blend-mode: screen;
+      opacity: 0.65;
+    }
+
+    .headline-kicker {
+      color: var(--gold);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .headline {
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(48px, 7vw, 92px);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+    }
+
+    .headline em {
+      font-style: normal;
+      display: block;
+      color: var(--gold);
+      text-shadow: 0 0 24px rgba(255, 204, 114, 0.18);
+    }
+
+    .hero-desc {
+      margin: 22px 0 0;
+      font-size: 18px;
+      line-height: 1.8;
+      max-width: 42ch;
+      color: #e6ddcf;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .badge {
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 204, 114, 0.18);
+      background: rgba(255, 255, 255, 0.04);
+      font-size: 14px;
+      color: #f4ecdf;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 600;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button.primary {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-strong) 100%);
+      color: #1a1308;
+      box-shadow: 0 20px 34px rgba(240, 169, 58, 0.26);
+    }
+
+    .button.secondary {
+      border-color: rgba(255, 204, 114, 0.2);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text);
+    }
+
+    .hero-cover {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 14px;
+    }
+
+    .cover-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 10px 0;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(255, 224, 177, 0.72);
+    }
+
+    .cover-frame {
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 204, 114, 0.18);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)),
+        rgba(4, 10, 22, 0.8);
+      min-height: 100%;
+      position: relative;
+    }
+
+    .cover-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .cover-fallback {
+      display: none;
+      padding: 34px 28px;
+      min-height: 100%;
+      color: #f4ecdf;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 1.8;
+    }
+
+    .section {
+      margin-top: 28px;
+      padding: 30px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background: rgba(6, 16, 34, 0.74);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+    }
+
+    .section-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: end;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .section-kicker {
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(34px, 4vw, 48px);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .section-desc {
+      margin: 8px 0 0;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 56ch;
+    }
+
+    .gift-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .gift-card {
+      padding: 26px;
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gift-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -20% -70px auto;
+      width: 220px;
+      height: 220px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(255, 204, 114, 0.20), transparent 72%);
+      pointer-events: none;
+    }
+
+    .gift-card.violet {
+      box-shadow: inset 0 0 0 1px rgba(158, 111, 255, 0.12);
+    }
+
+    .gift-card.gold {
+      box-shadow: inset 0 0 0 1px rgba(255, 204, 114, 0.12);
+    }
+
+    .gift-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .gift-card.violet .gift-label {
+      background: linear-gradient(135deg, rgba(123, 88, 184, 0.94), rgba(91, 60, 151, 0.94));
+    }
+
+    .gift-card.gold .gift-label {
+      background: linear-gradient(135deg, rgba(210, 152, 52, 0.94), rgba(143, 95, 12, 0.94));
+    }
+
+    .gift-title {
+      margin: 0 0 8px;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+    }
+
+    .gift-subtitle {
+      color: var(--muted);
+      margin: 0 0 18px;
+      line-height: 1.7;
+    }
+
+    .bullet-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .bullet-list li {
+      display: flex;
+      align-items: start;
+      gap: 12px;
+      line-height: 1.6;
+    }
+
+    .gift-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .gift-cta {
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 204, 114, 0.22);
+      background: rgba(255, 204, 114, 0.10);
+      color: #fff0cc;
+      box-shadow: inset 0 0 0 1px rgba(255, 204, 114, 0.05);
+    }
+
+    .gift-cta:hover {
+      border-color: rgba(255, 204, 114, 0.34);
+      background: rgba(255, 204, 114, 0.16);
+    }
+
+    .dot {
+      width: 26px;
+      height: 26px;
+      flex: 0 0 26px;
+      border-radius: 999px;
+      display: inline-grid;
+      place-items: center;
+      margin-top: 1px;
+      color: #170f06;
+      background: linear-gradient(135deg, var(--gold), var(--gold-strong));
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .resource-grid,
+    .delivery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .resource-card,
+    .delivery-card,
+    .prompt-card {
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
+      padding: 22px;
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .resource-card:hover,
+    .delivery-card:hover,
+    .prompt-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255, 204, 114, 0.22);
+      box-shadow: 0 18px 28px rgba(0, 0, 0, 0.16);
+    }
+
+    .resource-card--class {
+      border-color: rgba(255, 204, 114, 0.22);
+      background:
+        linear-gradient(180deg, rgba(255, 204, 114, 0.10), rgba(255, 255, 255, 0.02)),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 204, 114, 0.06),
+        0 18px 34px rgba(12, 10, 5, 0.18);
+      position: relative;
+    }
+
+    .resource-card--class::before {
+      content: "추천";
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #fff0cc;
+      background: rgba(255, 204, 114, 0.14);
+      border: 1px solid rgba(255, 204, 114, 0.16);
+    }
+
+    .resource-card--class .resource-title {
+      max-width: calc(100% - 72px);
+    }
+
+    .resource-card--class .resource-link {
+      color: #ffe2a3;
+    }
+
+    .resource-tag {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+      background: rgba(255, 204, 114, 0.12);
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .resource-title,
+    .delivery-title,
+    .prompt-title {
+      margin: 0 0 8px;
+      font-size: 20px;
+      line-height: 1.3;
+      letter-spacing: -0.03em;
+    }
+
+    .resource-text,
+    .delivery-text,
+    .prompt-text {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .resource-link {
+      margin-top: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .prompt-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .prompt-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .meta-chip {
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 12px;
+      background: rgba(255, 255, 255, 0.06);
+      color: #e8dcc6;
+    }
+
+    .prompt-body {
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(2, 8, 18, 0.74);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 13px;
+      line-height: 1.7;
+      color: #efe5d6;
+      white-space: pre-wrap;
+      max-height: 360px;
+      overflow: auto;
+    }
+
+    .prompt-actions {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 16px;
+      align-items: center;
+    }
+
+    .copy-button {
+      min-height: 42px;
+      padding: 0 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 204, 114, 0.24);
+      background: rgba(255, 204, 114, 0.08);
+      color: #ffe7b6;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .copy-status {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .footer-note {
+      margin-top: 28px;
+      padding: 24px 26px;
+      border-radius: 22px;
+      border: 1px solid rgba(255, 204, 114, 0.16);
+      background: linear-gradient(135deg, rgba(255, 204, 114, 0.08), rgba(255, 255, 255, 0.02));
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .footer-note strong {
+      color: var(--gold);
+    }
+
+    .mono {
+      font-family: "IBM Plex Mono", monospace;
+    }
+
+    @media (max-width: 1080px) {
+      .hero,
+      .gift-grid,
+      .resource-grid,
+      .delivery-grid,
+      .prompt-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .shell {
+        width: min(calc(100% - 20px), var(--container));
+        padding-top: 14px;
+      }
+
+      .topbar {
+        border-radius: 24px;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero-copy,
+      .section {
+        padding: 22px;
+      }
+
+      .headline {
+        font-size: clamp(42px, 17vw, 72px);
+      }
+
+      .hero-desc {
+        font-size: 16px;
+      }
+
+      .button {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">◆</div>
+        <div class="brand-copy">
+          <div class="eyebrow">Special Gift Archive</div>
+          <div class="brand-row">
+            <div class="brand-title">한콘연 온라인 특강 · NotebookLM A to Z</div>
+            <div class="instructor-chip">강사 김진수</div>
+          </div>
+        </div>
+      </div>
+      <div class="topbar-note">
+        2026-06-28 NotebookLM 특강 후기 선물 · 링크 · 프롬프트
+      </div>
+    </header>
+
+    <section class="hero">
+      <article class="hero-copy">
+        <div>
+          <div class="headline-kicker">Review Gift Landing</div>
+          <h1 class="headline">
+            내 자료 하나로
+            <em>NotebookLM이 다 정리합니다</em>
+          </h1>
+          <p class="hero-desc">
+            2시간 안에 AI를 활용해서 PDF 100개를 NotebookLM이 읽고,
+            오디오북 · 팟캐스트 · 마인드맵까지 만들어내는 실습 특강의 후기 선물입니다.
+            강의에서 공유된 링크와 프롬프트를 한 페이지에 모아 바로 복사할 수 있게 했습니다.
+          </p>
+          <div class="hero-badges">
+            <span class="badge">2026-06-28 (일) 20:30</span>
+            <span class="badge">선착순 300명 무료</span>
+            <span class="badge">NotebookLM 실습 노트북 포함</span>
+            <span class="badge">프롬프트 복사 지원</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a class="button primary" href="#resources">공유 링크 보기</a>
+          <a class="button secondary" href="#prompts">프롬프트 복사하기</a>
+        </div>
+      </article>
+
+      <aside class="hero-cover">
+        <div class="cover-meta">
+          <span>Cover Artwork</span>
+          <span>Review Gift Poster</span>
+        </div>
+        <div class="cover-frame">
+          <img
+            id="coverImage"
+            alt="한콘연 NotebookLM 특강 후기 선물 안내 포스터"
+            src="./cover.png"
+          >
+          <div id="coverFallback" class="cover-fallback">
+            <div>
+              <strong>표지 이미지 연결 필요</strong><br>
+              현재 페이지와 같은 폴더에 <span class="mono">cover.png</span>를 두면 자동으로 표지가 표시됩니다.
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section" id="gifts">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Gift Composition</div>
+          <h2 class="section-title">후기 선물 구성</h2>
+          <p class="section-desc">강의 직후 후기를 남긴 분께 전달되는 기본 선물과, 다시보기 · 확장 자료까지 한 번에 받는 구매 선물 두 가지로 구성됩니다.</p>
+        </div>
+      </div>
+
+      <div class="gift-grid">
+        <article class="gift-card violet">
+          <div class="gift-label">후기 선물</div>
+          <h3 class="gift-title">6/28 강의 내용 요약본</h3>
+          <p class="gift-subtitle">강의 직후 후기 작성자에게 바로 전달되는 NotebookLM 학습 자료입니다.</p>
+          <ul class="bullet-list">
+            <li><span class="dot">1</span><span>강의 핵심 내용을 한눈에 정리</span></li>
+            <li><span class="dot">2</span><span>실전 활용 포인트 빠르게 파악</span></li>
+            <li><span class="dot">3</span><span>복습과 실전에 바로 활용 가능한 구성</span></li>
+          </ul>
+        </article>
+
+        <article class="gift-card gold">
+          <div class="gift-label">구매 선물</div>
+          <h3 class="gift-title">다시보기 + 확장 자료 패키지</h3>
+          <p class="gift-subtitle">강의 다시보기 녹화본과 함께, 스튜디오·확장프로그램까지 묶은 확장형 학습 패키지입니다.</p>
+          <ul class="bullet-list">
+            <li><span class="dot">1</span><span>6/28 강의 내용 요약본 (기본 선물 포함)</span></li>
+            <li><span class="dot">2</span><span>6/28 강의 다시보기 특강 녹화본</span></li>
+            <li><span class="dot">3</span><span>NotebookLM 스튜디오 디자인 프롬프트 10</span></li>
+            <li><span class="dot">4</span><span>추천 확장 프로그램 가이드 3종</span></li>
+          </ul>
+          <div class="gift-cta-row">
+            <a class="button gift-cta" href="#" target="_blank" rel="noreferrer">구매 선물 신청 (링크 준비 중) ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="resources">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Quick Links</div>
+          <h2 class="section-title">바로 열기 링크</h2>
+          <p class="section-desc">강의 중 공유된 NotebookLM · Gemini · Chrome 확장 등 핵심 링크만 정리했습니다.</p>
+        </div>
+      </div>
+
+      <div class="resource-grid" id="resourceGrid"></div>
+    </section>
+
+    <section class="section" id="prompts">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Copy & Use</div>
+          <h2 class="section-title">복사해서 쓰는 프롬프트</h2>
+          <p class="section-desc">강의에서 시연된 NotebookLM 활용 프롬프트입니다. 채팅 창 맞춤설정 · 오디오 오버뷰 · 회의록 자동화에 그대로 적용할 수 있습니다.</p>
+        </div>
+      </div>
+
+      <div class="prompt-grid" id="promptGrid"></div>
+    </section>
+
+    <section class="section" id="delivery">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Resource Delivery</div>
+          <h2 class="section-title">자료 다운로드</h2>
+          <p class="section-desc">강의 후 공유되는 자료 다운로드 링크입니다. 링크가 준비되는 대로 이 영역에서 바로 받을 수 있게 업데이트됩니다.</p>
+        </div>
+      </div>
+
+      <div class="delivery-grid">
+        <article class="delivery-card">
+          <h3 class="delivery-title">6/28 강의 내용 요약본 (PDF)</h3>
+          <p class="delivery-text">
+            강의 핵심 내용을 정리한 요약본입니다.
+            준비되는 대로 Google Drive 링크가 연결됩니다.
+          </p>
+          <a class="resource-link" href="#" target="_blank" rel="noreferrer">요약본 열기 ↗ (준비 중)</a>
+        </article>
+
+        <article class="delivery-card">
+          <h3 class="delivery-title">스튜디오 디자인 프롬프트 10</h3>
+          <p class="delivery-text">
+            NotebookLM 스튜디오에서 바로 쓰는 프롬프트 10종.
+            구매 선물 신청자에게 별도 안내됩니다.
+          </p>
+          <a class="resource-link" href="#" target="_blank" rel="noreferrer">프롬프트 묶음 열기 ↗ (준비 중)</a>
+        </article>
+
+        <article class="delivery-card">
+          <h3 class="delivery-title">추천 확장 프로그램 가이드 3종</h3>
+          <p class="delivery-text">
+            FolderLM · BananaNL 등 NotebookLM 작업 효율을 높이는 Chrome 확장 가이드입니다.
+          </p>
+          <a class="resource-link" href="#" target="_blank" rel="noreferrer">가이드 열기 ↗ (준비 중)</a>
+        </article>
+      </div>
+
+      <div class="footer-note">
+        <div>
+          <strong>자료 안내</strong><br>
+          위 버튼은 자료 준비가 완료되는 대로 Google Drive 공유 링크로 연결됩니다.
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const resources = [
+      {
+        tag: "NotebookLM",
+        title: "NotebookLM 시작 화면",
+        text: "강의 실습의 출발점. 새 노트북을 만들거나 기존 노트북에 자료를 추가할 때 사용합니다.",
+        href: "https://notebooklm.google.com/"
+      },
+      {
+        tag: "NotebookLM",
+        title: "강사 실습용 공유 노트북",
+        text: "강의 중 시연된 강사 준비 NotebookLM 노트북. 자료를 추가하며 함께 실습할 수 있습니다.",
+        href: "https://notebooklm.google.com/notebook/4f448d56-bb82-4109-ad8d-be014cc55db3?addSource=true"
+      },
+      {
+        tag: "Gemini",
+        title: "Gemini 앱",
+        text: "NotebookLM과 함께 쓰는 Google Gemini 메인 페이지입니다.",
+        href: "https://gemini.google.com/app"
+      },
+      {
+        tag: "Gemini",
+        title: "Gemini 공유 대화",
+        text: "강사가 시연한 Gemini 대화 결과 공유 링크입니다.",
+        href: "https://share.gemini.google/3KpXF5MJBv6I"
+      },
+      {
+        tag: "ChatGPT",
+        title: "ChatGPT 공유 1 · AI 활용 방법",
+        text: "AI를 어떻게 쓸지 자가 진단하는 대화 예시 공유 링크입니다.",
+        href: "https://chatgpt.com/share/6a41098b-b260-83e8-85cd-231eb6681d15"
+      },
+      {
+        tag: "ChatGPT",
+        title: "ChatGPT 공유 2",
+        text: "참가자 이현 님이 공유한 ChatGPT 대화 예시입니다.",
+        href: "https://chatgpt.com/share/6a410989-c2b8-83e8-b0f4-2e2557af717e"
+      },
+      {
+        tag: "ChatGPT",
+        title: "ChatGPT 공유 3",
+        text: "참가자 정지연 강사님이 공유한 ChatGPT 대화 예시입니다.",
+        href: "https://chatgpt.com/share/6a4109dc-fadc-83ee-a500-84721f816190"
+      },
+      {
+        tag: "Canva",
+        title: "Canva 실습 자료",
+        text: "강사가 강의 중 공유한 Canva 디자인 링크입니다.",
+        href: "https://canva.link/dyd8yygllv6wj42"
+      },
+      {
+        tag: "Chrome",
+        title: "FolderLM · NotebookLM 폴더 관리",
+        text: "NotebookLM의 노트북을 폴더 단위로 정리하는 Chrome 확장프로그램입니다.",
+        href: "https://chromewebstore.google.com/detail/folderlm-notebooklm-folde/nknkgcmodkaiffdnlpmlnegmeamnbioe?hl=ko"
+      },
+      {
+        tag: "Chrome",
+        title: "BananaNL",
+        text: "NotebookLM 작업을 보조하는 Chrome 확장프로그램입니다.",
+        href: "https://chromewebstore.google.com/detail/%F0%9F%8D%8C-banananl/mjennffndagebhgcbeblffhgooohling"
+      },
+      {
+        tag: "Google",
+        title: "Google One 안내",
+        text: "NotebookLM·Gemini 유료 플랜과 관련된 Google One 지원 페이지입니다.",
+        href: "https://support.google.com/googleone/answer/9155746?hl=ko"
+      },
+      {
+        tag: "Class",
+        title: "한콘연 4주 클래스 안내",
+        text: "강의 후 이어지는 한콘연 후속 클래스 안내 링크입니다.",
+        href: "https://aicontentslab.liveklass.com/classes/306977"
+      },
+      {
+        tag: "Contact",
+        title: "문의 채널",
+        text: "후기 캡처 제출 또는 문의가 필요할 때 사용할 수 있는 카카오톡 채널입니다.",
+        href: "http://pf.kakao.com/_AaBxgn"
+      }
+    ];
+
+    const prompts = [
+      {
+        title: "AI 활용 자가 진단 프롬프트",
+        usage: "AI로 뭘 할 수 있는지 모를 때",
+        level: "출발점 프롬프트",
+        body: `나는 [          ]하는 사람이야.
+AI가 많이 좋아지고 기술도 늘었다는데
+나는 AI를 활용해서 어떤 도움을 받을 수 있는지 잘 모르겠어.
+내가 AI로 뭘 할 수 있는지 네가 생각나는 대로 나한테 얘기 좀 해줄래?`
+      },
+      {
+        title: "NotebookLM 채팅 맞춤설정 (역할 부여)",
+        usage: "노트북 전체 응답 톤 고정",
+        level: "재사용도 매우 높음",
+        body: `1. 출처는 반드시 신뢰도 우선으로 가지고 올 것.
+2. 나는 AI 강사 컨설턴트, AI 자동화 설계를 전문으로 하는 사람이야.
+3. 답변은 짧고, 쉽게, 가능한 사례 중심으로 출력해줘.`
+      },
+      {
+        title: "보고서 형식 맞춤 프롬프트",
+        usage: "결과물을 공식 문서처럼 만들 때",
+        level: "짧고 강함",
+        body: `보고일시 : 2026.6.28(일)
+작성자 : 김진수 소장
+으로 출력해줘.`
+      },
+      {
+        title: "자료 출처 강조 프롬프트",
+        usage: "내가 제공한 자료라는 점을 본문에 반복",
+        level: "브랜딩용",
+        body: `이 자료는 김진수 소장이 제공한 자료야.
+이름이 5번 이상 언급되도록 해.`
+      },
+      {
+        title: "오디오 오버뷰 심층분석 프롬프트",
+        usage: "NotebookLM 팟캐스트 톤 조정",
+        level: "오디오 생성용",
+        body: `오디오 오버뷰 - 심층분석.
+초보자가 NotebookLM 엔터프라이즈 설정을 쉽게 이해하도록
+단계별로 핵심 개념만 설명해줘.
+Make나 Replit을 활용해 업무를 자동화하는
+실용적인 사례도 함께 알려줘.`
+      },
+      {
+        title: "회의록 자동화 워크플로 프롬프트",
+        usage: "Make · NotebookLM 연동 설계",
+        level: "자동화 설계용",
+        body: `회의록을 자동으로 요약하여 NotebookLM에 저장하는
+구체적인 워크플로를 알려줘.
+- 입력: Zoom 채팅 로그 / 회의록 텍스트
+- 처리: 요약 → 핵심 키워드 추출 → 액션 아이템 분리
+- 저장: NotebookLM 노트북에 소스로 자동 추가
+각 단계에서 어떤 도구를 어떻게 연결하면 되는지 단계별로 설명해줘.`
+      }
+    ];
+
+    const resourceGrid = document.getElementById("resourceGrid");
+    const promptGrid = document.getElementById("promptGrid");
+
+    resources.forEach((item) => {
+      const card = document.createElement("article");
+      const isClassCard = item.tag === "Class";
+      card.className = isClassCard ? "resource-card resource-card--class" : "resource-card";
+      card.innerHTML = `
+        <div class="resource-tag">${item.tag}</div>
+        <h3 class="resource-title">${item.title}</h3>
+        <p class="resource-text">${item.text}</p>
+        <a class="resource-link" href="${item.href}" target="_blank" rel="noreferrer">링크 열기 ↗</a>
+      `;
+      resourceGrid.appendChild(card);
+    });
+
+    prompts.forEach((item, index) => {
+      const card = document.createElement("article");
+      card.className = "prompt-card";
+      card.innerHTML = `
+        <div class="prompt-meta">
+          <span class="meta-chip">${item.usage}</span>
+          <span class="meta-chip">${item.level}</span>
+        </div>
+        <h3 class="prompt-title">${item.title}</h3>
+        <p class="prompt-text">페이지에서 바로 복사해 재사용할 수 있게 구성했습니다.</p>
+        <div class="prompt-body" id="promptBody${index}">${item.body}</div>
+        <div class="prompt-actions">
+          <button class="copy-button" data-copy-target="promptBody${index}">프롬프트 복사</button>
+          <span class="copy-status" id="copyStatus${index}">복사 전</span>
+        </div>
+      `;
+      promptGrid.appendChild(card);
+    });
+
+    document.querySelectorAll(".copy-button").forEach((button, index) => {
+      button.addEventListener("click", async () => {
+        const target = document.getElementById(button.dataset.copyTarget);
+        const status = document.getElementById(`copyStatus${index}`);
+        try {
+          await navigator.clipboard.writeText(target.textContent);
+          status.textContent = "복사 완료";
+        } catch (error) {
+          status.textContent = "브라우저 권한 필요";
+        }
+      });
+    });
+
+    const coverImage = document.getElementById("coverImage");
+    const coverFallback = document.getElementById("coverFallback");
+
+    function showCoverFallback() {
+      coverImage.style.display = "none";
+      coverFallback.style.display = "flex";
+    }
+
+    coverImage.addEventListener("error", showCoverFallback);
+  </script>
+</body>
+</html>
