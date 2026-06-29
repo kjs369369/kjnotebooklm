@@ -5,6 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>한콘연 온라인 특강 후기 선물 · NotebookLM A to Z</title>
   <meta name="description" content="2026-06-28 한콘연 NotebookLM 온라인 특강 후기 선물 안내 페이지. 공유 링크, 프롬프트, 자료 다운로드를 한 번에 확인할 수 있습니다.">
+
+  <!-- Open Graph / Facebook / KakaoTalk -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kjnotebooklm.vercel.app/">
+  <meta property="og:title" content="한콘연 온라인 특강 후기 선물 · NotebookLM A to Z">
+  <meta property="og:description" content="2026-06-28 NotebookLM 특강의 공유 링크 · 프롬프트 · 자료 다운로드를 한 페이지에 모았습니다. 강사 김진수.">
+  <meta property="og:image" content="https://kjnotebooklm.vercel.app/cover.png">
+  <meta property="og:image:secure_url" content="https://kjnotebooklm.vercel.app/cover.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1672">
+  <meta property="og:image:height" content="941">
+  <meta property="og:image:alt" content="한콘연 NotebookLM 특강 후기 선물 안내 포스터">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="한콘연 온라인 특강 · 강사 김진수">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="한콘연 온라인 특강 후기 선물 · NotebookLM A to Z">
+  <meta name="twitter:description" content="2026-06-28 NotebookLM 특강의 공유 링크 · 프롬프트 · 자료 다운로드를 한 페이지에 모았습니다.">
+  <meta name="twitter:image" content="https://kjnotebooklm.vercel.app/cover.png">
+  <meta name="twitter:image:alt" content="한콘연 NotebookLM 특강 후기 선물 안내 포스터">
   <style>
     :root {
       --bg: #061124;
@@ -308,6 +329,11 @@
         rgba(4, 10, 22, 0.8);
       min-height: 100%;
       position: relative;
+      cursor: zoom-in;
+    }
+
+    .cover-frame:hover {
+      border-color: rgba(255, 204, 114, 0.35);
     }
 
     .cover-frame img {
@@ -315,6 +341,75 @@
       height: 100%;
       object-fit: cover;
       object-position: center top;
+      transition: transform 220ms ease;
+    }
+
+    .cover-frame:hover img {
+      transform: scale(1.015);
+    }
+
+    .cover-zoom-hint {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(4, 10, 22, 0.78);
+      border: 1px solid rgba(255, 204, 114, 0.28);
+      color: #ffe6b0;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      backdrop-filter: blur(8px);
+      pointer-events: none;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+      background: rgba(2, 6, 16, 0.92);
+      backdrop-filter: blur(12px);
+      cursor: zoom-out;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: min(96vw, 1200px);
+      max-height: 92vh;
+      object-fit: contain;
+      border-radius: 18px;
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+      cursor: default;
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 22px;
+      right: 26px;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 204, 114, 0.32);
+      background: rgba(255, 204, 114, 0.12);
+      color: #ffe6b0;
+      font-size: 22px;
+      line-height: 1;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+    }
+
+    .lightbox-close:hover {
+      background: rgba(255, 204, 114, 0.24);
     }
 
     .cover-fallback {
@@ -546,6 +641,47 @@
       color: #ffe2a3;
     }
 
+    .delivery-card--locked {
+      position: relative;
+      background:
+        linear-gradient(180deg, rgba(123, 88, 184, 0.10), rgba(255, 255, 255, 0.02)),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.015));
+      border-color: rgba(158, 111, 255, 0.18);
+    }
+
+    .delivery-card--locked:hover {
+      transform: none;
+      border-color: rgba(158, 111, 255, 0.28);
+      box-shadow: none;
+    }
+
+    .locked-badge {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #e6d6ff;
+      background: rgba(123, 88, 184, 0.22);
+      border: 1px solid rgba(158, 111, 255, 0.32);
+    }
+
+    .delivery-card--locked .delivery-title {
+      max-width: calc(100% - 90px);
+    }
+
+    .resource-link--locked {
+      color: #b8a8d4;
+      cursor: default;
+    }
+
+    .resource-link--locked:hover {
+      color: #b8a8d4;
+    }
+
     .resource-tag {
       display: inline-block;
       padding: 6px 10px;
@@ -765,12 +901,13 @@
           <span>Cover Artwork</span>
           <span>Review Gift Poster</span>
         </div>
-        <div class="cover-frame">
+        <div class="cover-frame" id="coverFrame" role="button" tabindex="0" aria-label="표지 이미지 크게 보기">
           <img
             id="coverImage"
             alt="한콘연 NotebookLM 특강 후기 선물 안내 포스터"
             src="./cover.png"
           >
+          <span class="cover-zoom-hint">클릭해서 크게 보기</span>
           <div id="coverFallback" class="cover-fallback">
             <div>
               <strong>표지 이미지 연결 필요</strong><br>
@@ -800,6 +937,10 @@
             <li><span class="dot">2</span><span>실전 활용 포인트 빠르게 파악</span></li>
             <li><span class="dot">3</span><span>복습과 실전에 바로 활용 가능한 구성</span></li>
           </ul>
+          <div class="gift-cta-row">
+            <a class="button gift-cta" href="./summary.html">요약본 바로보기 ↗</a>
+            <a class="button gift-cta" href="https://docs.google.com/forms/d/1zpT5GMkuCRdlf13nAVkqXlDzRrdmK-1N03xfZeOOBT8/viewform?edit_requested=true" target="_blank" rel="noreferrer">녹화본 신청 ↗</a>
+          </div>
         </article>
 
         <article class="gift-card gold">
@@ -813,7 +954,7 @@
             <li><span class="dot">4</span><span>추천 확장 프로그램 가이드 3종</span></li>
           </ul>
           <div class="gift-cta-row">
-            <a class="button gift-cta" href="#" target="_blank" rel="noreferrer">구매 선물 신청 (링크 준비 중) ↗</a>
+            <a class="button gift-cta" href="https://docs.google.com/forms/d/1zpT5GMkuCRdlf13nAVkqXlDzRrdmK-1N03xfZeOOBT8/viewform?edit_requested=true" target="_blank" rel="noreferrer">구매 선물 신청하기 ↗</a>
           </div>
         </article>
       </div>
@@ -854,39 +995,48 @@
 
       <div class="delivery-grid">
         <article class="delivery-card">
-          <h3 class="delivery-title">6/28 강의 내용 요약본 (PDF)</h3>
+          <h3 class="delivery-title">6/28 강의 내용 요약본</h3>
           <p class="delivery-text">
-            강의 핵심 내용을 정리한 요약본입니다.
-            준비되는 대로 Google Drive 링크가 연결됩니다.
+            강의 핵심 내용을 한 페이지로 정리한 요약본입니다.
+            후기 선물 참여자라면 누구나 바로 확인할 수 있습니다.
           </p>
-          <a class="resource-link" href="#" target="_blank" rel="noreferrer">요약본 열기 ↗ (준비 중)</a>
+          <a class="resource-link" href="./summary.html">요약본 열기 ↗</a>
         </article>
 
-        <article class="delivery-card">
+        <article class="delivery-card delivery-card--locked">
+          <span class="locked-badge">구매자 전용</span>
           <h3 class="delivery-title">스튜디오 디자인 프롬프트 10</h3>
           <p class="delivery-text">
             NotebookLM 스튜디오에서 바로 쓰는 프롬프트 10종.
-            구매 선물 신청자에게 별도 안내됩니다.
+            구매 선물 신청자에게만 별도로 안내됩니다.
           </p>
-          <a class="resource-link" href="#" target="_blank" rel="noreferrer">프롬프트 묶음 열기 ↗ (준비 중)</a>
+          <span class="resource-link resource-link--locked">구매 신청 후 별도 안내</span>
         </article>
 
-        <article class="delivery-card">
+        <article class="delivery-card delivery-card--locked">
+          <span class="locked-badge">구매자 전용</span>
           <h3 class="delivery-title">추천 확장 프로그램 가이드 3종</h3>
           <p class="delivery-text">
             FolderLM · BananaNL 등 NotebookLM 작업 효율을 높이는 Chrome 확장 가이드입니다.
+            구매 선물 신청자에게만 별도로 안내됩니다.
           </p>
-          <a class="resource-link" href="#" target="_blank" rel="noreferrer">가이드 열기 ↗ (준비 중)</a>
+          <span class="resource-link resource-link--locked">구매 신청 후 별도 안내</span>
         </article>
       </div>
 
       <div class="footer-note">
         <div>
           <strong>자료 안내</strong><br>
-          위 버튼은 자료 준비가 완료되는 대로 Google Drive 공유 링크로 연결됩니다.
+          요약본은 후기 선물 참여자라면 누구나 위 카드로 바로 열 수 있습니다.
+          스튜디오 프롬프트와 확장프로그램 가이드는 구매 선물 신청자에게만 별도로 안내됩니다.
         </div>
       </div>
     </section>
+  </div>
+
+  <div class="lightbox" id="coverLightbox" role="dialog" aria-modal="true" aria-label="표지 이미지 크게 보기">
+    <button type="button" class="lightbox-close" id="lightboxClose" aria-label="닫기">×</button>
+    <img id="lightboxImage" alt="한콘연 NotebookLM 특강 후기 선물 안내 포스터 전체 보기">
   </div>
 
   <script>
@@ -1077,13 +1227,48 @@ Make나 Replit을 활용해 업무를 자동화하는
 
     const coverImage = document.getElementById("coverImage");
     const coverFallback = document.getElementById("coverFallback");
+    const coverFrame = document.getElementById("coverFrame");
+    const lightbox = document.getElementById("coverLightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxClose = document.getElementById("lightboxClose");
 
     function showCoverFallback() {
       coverImage.style.display = "none";
       coverFallback.style.display = "flex";
+      coverFrame.style.cursor = "default";
+      const hint = coverFrame.querySelector(".cover-zoom-hint");
+      if (hint) hint.style.display = "none";
     }
 
     coverImage.addEventListener("error", showCoverFallback);
+
+    function openLightbox() {
+      if (coverImage.style.display === "none") return;
+      lightboxImage.src = coverImage.src;
+      lightbox.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+
+    coverFrame.addEventListener("click", openLightbox);
+    coverFrame.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openLightbox();
+      }
+    });
+
+    lightboxClose.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && lightbox.classList.contains("open")) closeLightbox();
+    });
   </script>
 </body>
 </html>
