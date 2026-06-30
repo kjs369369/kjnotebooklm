@@ -17,6 +17,6 @@
 ## Notes
 
 - 정적 HTML 2페이지 + 표지 이미지 1개로 구성됩니다.
-- 후기 선물 카드는 `summary.html`로 직접 연결, 구매 선물(스튜디오 프롬프트·확장 가이드)은 "구매자 전용" 표시로 비활성화 상태입니다.
+- 후기 선물 카드는 `summary.html`로 직접 연결, 구매 선물(스튜디오 프롬프트·확장 가이드)은 Canva 자료 링크로 바로 연결됩니다.
 - 녹화본 신청 폼: https://docs.google.com/forms/d/1zpT5GMkuCRdlf13nAVkqXlDzRrdmK-1N03xfZeOOBT8/viewform
 - 수정 후 `vercel --prod`로 재배포하거나, GitHub 연동을 추가하면 푸시 시 자동 배포됩니다.
