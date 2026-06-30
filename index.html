@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>한콘연 온라인 특강 후기선물 · NotebookLM 요약본</title>
-  <meta name="description" content="2026-06-28 한콘연 NotebookLM 온라인 특강 후기선물 페이지. 후기 참여자를 위한 6/28 강의 내용 요약본을 확인할 수 있습니다.">
+  <title>한콘연 온라인 특강 후기선물 · NotebookLM 자료</title>
+  <meta name="description" content="2026-06-28 한콘연 NotebookLM 온라인 특강 후기선물 페이지. 요약본, 강의에서 나온 링크, 복사해서 쓰는 프롬프트를 확인할 수 있습니다.">
 
   <!-- Open Graph / Facebook / KakaoTalk -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kjnotebooklm.vercel.app/index.html">
-  <meta property="og:title" content="한콘연 온라인 특강 후기선물 · NotebookLM 요약본">
-  <meta property="og:description" content="후기 참여자를 위한 6/28 NotebookLM 강의 내용 요약본 페이지입니다. 구매선물 자료와 명확히 분리되어 있습니다.">
+  <meta property="og:title" content="한콘연 온라인 특강 후기선물 · NotebookLM 자료">
+  <meta property="og:description" content="후기 참여자를 위한 6/28 NotebookLM 강의 요약본, 강의 링크, 복사용 프롬프트 페이지입니다. 구매자 전용 자료와 분리되어 있습니다.">
   <meta property="og:image" content="https://kjnotebooklm.vercel.app/cover.png">
   <meta property="og:image:secure_url" content="https://kjnotebooklm.vercel.app/cover.png">
   <meta property="og:image:type" content="image/png">
@@ -22,8 +22,8 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="한콘연 온라인 특강 후기선물 · NotebookLM 요약본">
-  <meta name="twitter:description" content="후기 참여자를 위한 6/28 NotebookLM 강의 내용 요약본 페이지입니다.">
+  <meta name="twitter:title" content="한콘연 온라인 특강 후기선물 · NotebookLM 자료">
+  <meta name="twitter:description" content="요약본, 강의에서 나온 링크, 복사해서 쓰는 프롬프트를 확인할 수 있습니다.">
   <meta name="twitter:image" content="https://kjnotebooklm.vercel.app/cover.png">
   <meta name="twitter:image:alt" content="한콘연 NotebookLM 특강 후기 선물 안내 포스터">
   <style>
@@ -958,6 +958,30 @@
       </div>
     </section>
 
+    <section class="section" id="resources">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Quick Links</div>
+          <h2 class="section-title">바로 열기 링크</h2>
+          <p class="section-desc">강의 중 공유된 NotebookLM · Gemini · Chrome 확장 등 핵심 링크만 정리했습니다.</p>
+        </div>
+      </div>
+
+      <div class="resource-grid" id="resourceGrid"></div>
+    </section>
+
+    <section class="section" id="prompts">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Copy & Use</div>
+          <h2 class="section-title">복사해서 쓰는 프롬프트</h2>
+          <p class="section-desc">강의에서 시연된 NotebookLM 활용 프롬프트입니다. 채팅 창 맞춤설정 · 오디오 오버뷰 · 회의록 자동화에 그대로 적용할 수 있습니다.</p>
+        </div>
+      </div>
+
+      <div class="prompt-grid" id="promptGrid"></div>
+    </section>
+
     <section class="section" id="delivery">
       <div class="section-head">
         <div>
@@ -1014,6 +1038,191 @@
   </div>
 
   <script>
+    const resources = [
+      {
+        tag: "NotebookLM",
+        title: "NotebookLM 시작 화면",
+        text: "강의 실습의 출발점. 새 노트북을 만들거나 기존 노트북에 자료를 추가할 때 사용합니다.",
+        href: "https://notebooklm.google.com/"
+      },
+      {
+        tag: "NotebookLM",
+        title: "강사 실습용 공유 노트북",
+        text: "강의 중 시연된 강사 준비 NotebookLM 노트북. 자료를 추가하며 함께 실습할 수 있습니다.",
+        href: "https://notebooklm.google.com/notebook/4f448d56-bb82-4109-ad8d-be014cc55db3?addSource=true"
+      },
+      {
+        tag: "Gemini",
+        title: "Gemini 앱",
+        text: "NotebookLM과 함께 쓰는 Google Gemini 메인 페이지입니다.",
+        href: "https://gemini.google.com/app"
+      },
+      {
+        tag: "Gemini",
+        title: "Gemini 공유 대화",
+        text: "강사가 시연한 Gemini 대화 결과 공유 링크입니다.",
+        href: "https://share.gemini.google/3KpXF5MJBv6I"
+      },
+      {
+        tag: "ChatGPT",
+        title: "ChatGPT 공유 1 · AI 활용 방법",
+        text: "AI를 어떻게 쓸지 자가 진단하는 대화 예시 공유 링크입니다.",
+        href: "https://chatgpt.com/share/6a41098b-b260-83e8-85cd-231eb6681d15"
+      },
+      {
+        tag: "ChatGPT",
+        title: "ChatGPT 공유 2",
+        text: "참가자 이현 님이 공유한 ChatGPT 대화 예시입니다.",
+        href: "https://chatgpt.com/share/6a410989-c2b8-83e8-b0f4-2e2557af717e"
+      },
+      {
+        tag: "ChatGPT",
+        title: "ChatGPT 공유 3",
+        text: "참가자 정지연 강사님이 공유한 ChatGPT 대화 예시입니다.",
+        href: "https://chatgpt.com/share/6a4109dc-fadc-83ee-a500-84721f816190"
+      },
+      {
+        tag: "Canva",
+        title: "Canva 실습 자료",
+        text: "강사가 강의 중 공유한 Canva 디자인 링크입니다.",
+        href: "https://canva.link/dyd8yygllv6wj42"
+      },
+      {
+        tag: "Chrome",
+        title: "FolderLM · NotebookLM 폴더 관리",
+        text: "NotebookLM의 노트북을 폴더 단위로 정리하는 Chrome 확장프로그램입니다.",
+        href: "https://chromewebstore.google.com/detail/folderlm-notebooklm-folde/nknkgcmodkaiffdnlpmlnegmeamnbioe?hl=ko"
+      },
+      {
+        tag: "Chrome",
+        title: "BananaNL",
+        text: "NotebookLM 작업을 보조하는 Chrome 확장프로그램입니다.",
+        href: "https://chromewebstore.google.com/detail/%F0%9F%8D%8C-banananl/mjennffndagebhgcbeblffhgooohling"
+      },
+      {
+        tag: "Google",
+        title: "Google One 안내",
+        text: "NotebookLM·Gemini 유료 플랜과 관련된 Google One 지원 페이지입니다.",
+        href: "https://support.google.com/googleone/answer/9155746?hl=ko"
+      },
+      {
+        tag: "Class",
+        title: "한콘연 4주 클래스 안내",
+        text: "강의 후 이어지는 한콘연 후속 클래스 안내 링크입니다.",
+        href: "https://aicontentslab.liveklass.com/classes/306977"
+      },
+      {
+        tag: "Contact",
+        title: "문의 채널",
+        text: "후기 캡처 제출 또는 문의가 필요할 때 사용할 수 있는 카카오톡 채널입니다.",
+        href: "http://pf.kakao.com/_AaBxgn"
+      }
+    ];
+
+    const prompts = [
+      {
+        title: "AI 활용 자가 진단 프롬프트",
+        usage: "AI로 뭘 할 수 있는지 모를 때",
+        level: "출발점 프롬프트",
+        body: `나는 [          ]하는 사람이야.
+AI가 많이 좋아지고 기술도 늘었다는데
+나는 AI를 활용해서 어떤 도움을 받을 수 있는지 잘 모르겠어.
+내가 AI로 뭘 할 수 있는지 네가 생각나는 대로 나한테 얘기 좀 해줄래?`
+      },
+      {
+        title: "NotebookLM 채팅 맞춤설정 (역할 부여)",
+        usage: "노트북 전체 응답 톤 고정",
+        level: "재사용도 매우 높음",
+        body: `1. 출처는 반드시 신뢰도 우선으로 가지고 올 것.
+2. 나는 AI 강사 컨설턴트, AI 자동화 설계를 전문으로 하는 사람이야.
+3. 답변은 짧고, 쉽게, 가능한 사례 중심으로 출력해줘.`
+      },
+      {
+        title: "보고서 형식 맞춤 프롬프트",
+        usage: "결과물을 공식 문서처럼 만들 때",
+        level: "짧고 강함",
+        body: `보고일시 : 2026.6.28(일)
+작성자 : 김진수 소장
+으로 출력해줘.`
+      },
+      {
+        title: "자료 출처 강조 프롬프트",
+        usage: "내가 제공한 자료라는 점을 본문에 반복",
+        level: "브랜딩용",
+        body: `이 자료는 김진수 소장이 제공한 자료야.
+이름이 5번 이상 언급되도록 해.`
+      },
+      {
+        title: "오디오 오버뷰 심층분석 프롬프트",
+        usage: "NotebookLM 팟캐스트 톤 조정",
+        level: "오디오 생성용",
+        body: `오디오 오버뷰 - 심층분석.
+초보자가 NotebookLM 엔터프라이즈 설정을 쉽게 이해하도록
+단계별로 핵심 개념만 설명해줘.
+Make나 Replit을 활용해 업무를 자동화하는
+실용적인 사례도 함께 알려줘.`
+      },
+      {
+        title: "회의록 자동화 워크플로 프롬프트",
+        usage: "Make · NotebookLM 연동 설계",
+        level: "자동화 설계용",
+        body: `회의록을 자동으로 요약하여 NotebookLM에 저장하는
+구체적인 워크플로를 알려줘.
+- 입력: Zoom 채팅 로그 / 회의록 텍스트
+- 처리: 요약 → 핵심 키워드 추출 → 액션 아이템 분리
+- 저장: NotebookLM 노트북에 소스로 자동 추가
+각 단계에서 어떤 도구를 어떻게 연결하면 되는지 단계별로 설명해줘.`
+      }
+    ];
+
+    const resourceGrid = document.getElementById("resourceGrid");
+    const promptGrid = document.getElementById("promptGrid");
+
+    resources.forEach((item) => {
+      const card = document.createElement("article");
+      const isClassCard = item.tag === "Class";
+      card.className = isClassCard ? "resource-card resource-card--class" : "resource-card";
+      card.innerHTML = `
+        <div class="resource-tag">${item.tag}</div>
+        <h3 class="resource-title">${item.title}</h3>
+        <p class="resource-text">${item.text}</p>
+        <a class="resource-link" href="${item.href}" target="_blank" rel="noreferrer">링크 열기 ↗</a>
+      `;
+      resourceGrid.appendChild(card);
+    });
+
+    prompts.forEach((item, index) => {
+      const card = document.createElement("article");
+      card.className = "prompt-card";
+      card.innerHTML = `
+        <div class="prompt-meta">
+          <span class="meta-chip">${item.usage}</span>
+          <span class="meta-chip">${item.level}</span>
+        </div>
+        <h3 class="prompt-title">${item.title}</h3>
+        <p class="prompt-text">페이지에서 바로 복사해 재사용할 수 있게 구성했습니다.</p>
+        <div class="prompt-body" id="promptBody${index}">${item.body}</div>
+        <div class="prompt-actions">
+          <button class="copy-button" data-copy-target="promptBody${index}">프롬프트 복사</button>
+          <span class="copy-status" id="copyStatus${index}">복사 전</span>
+        </div>
+      `;
+      promptGrid.appendChild(card);
+    });
+
+    document.querySelectorAll(".copy-button").forEach((button, index) => {
+      button.addEventListener("click", async () => {
+        const target = document.getElementById(button.dataset.copyTarget);
+        const status = document.getElementById(`copyStatus${index}`);
+        try {
+          await navigator.clipboard.writeText(target.textContent);
+          status.textContent = "복사 완료";
+        } catch (error) {
+          status.textContent = "브라우저 권한 필요";
+        }
+      });
+    });
+
     const coverImage = document.getElementById("coverImage");
     const coverFallback = document.getElementById("coverFallback");
     const coverFrame = document.getElementById("coverFrame");
