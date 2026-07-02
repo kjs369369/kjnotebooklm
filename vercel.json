@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    {
+      "source": "/buyer",
+      "destination": "/buyer.html"
+    },
+    {
+      "source": "/summary",
+      "destination": "/summary.html"
+    },
+    {
+      "source": "/index",
+      "destination": "/index.html"
+    }
+  ]
+}
